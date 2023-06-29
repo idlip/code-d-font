@@ -120,7 +120,7 @@ Build the fonts by running the main Python script in the project:
 source venv/bin/activate         # activate the virtual environment if you haven’t already
 python3 scripts/instantiate-code-fonts.py
 ```
-
+cl
 It will build & output fonts to a folder like `RecCode-Custom` (this is affected by whatever custom name you give fonts in config.yaml).
 
 #### 3. Install the fonts and activate the ligatures!
