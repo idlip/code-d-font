@@ -1,8 +1,8 @@
 # Configuration for Rec Code SemiCasual
 # Here as an example, or to tweak & use if you wish to
 # See the project README and top-level config.yaml for details.
-
-Family Name Suffix: Semicasual 
+# semi csl
+Family Name Suffix: Zoro
 
 Fonts:
   Regular:
@@ -33,6 +33,7 @@ Fonts:
 Code Ligatures: True
 
 Features:
+- ss02
 - ss03 # Simplified f
 - ss05 # Simplified l
 - ss08 # Serifless L and Z
