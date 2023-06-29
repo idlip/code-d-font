@@ -1,0 +1,92 @@
+#+title: OnePiece Fan's Recursive Font
+
+
+* Fork
+This is obviously a fork of ~Recursive Fonts~ , I have nerd-font patched it for icons, and have named it in a OnePiece fashion.
+If you had noticed, all my personal repo's branched are named after OnePiece stuffs.
+
+You can check the origianl repo and modify to your needs.
+
+* Usage
+
+Since I use *NixOS*, I got error on =libstdc++.s0.6= .
+
+#+begin_src shell
+  nix develop # or nix-shell -p gcc_multi
+
+  # check for /nix/store/***-glib-2.76.2/lib64
+  # Gets rid of libstdc++.so.6 error
+  export LD_LIBRARY_PATH=/nix/store/***-glib-2.76.2/lib64
+
+  # Skip if done
+  python -m venv venv
+  pip install -r requirements.txt 
+
+  # Follow on
+  source venv/bin/activate
+  python scripts/instantiate-code-fonts.py premade-configs/any.yaml
+#+end_src
+
+
+* Patch
+
+Get the ~nerd-font-patcher~ from nerd-fonts repo.
+| Nerd command | Usage                         |
+| =-c=           | Complete Icon Set             |
+| =--careful=    | Not to override present glyph |
+| =--makegroups= | Renaming of font              |
+| =-out=       | Output directory              |
+
+Eg: In makegroups, -1 does not add any new name. It gives the default name as you built.
+Rest all from 0-6, adds some form of name.
+
+#+begin_quote
+     Original font name: Hugo Sans Mono ExtraCondensed Light Italic
+                                                                  NF  Fam agg.
+     -1  no renaming at all (keep old names and versions etc)     --- --- ---
+      0  turned off, use old naming scheme                        [-] [-] [-]
+      1  HugoSansMono Nerd Font ExtraCondensed Light Italic       [ ] [ ] [ ]
+      2  HugoSansMono Nerd Font ExtCn Light Italic                [ ] [X] [ ]
+      3  HugoSansMono Nerd Font XCn Lt It                         [ ] [X] [X]
+      4  HugoSansMono NF ExtraCondensed Light Italic              [X] [ ] [ ]
+      5  HugoSansMono NF ExtCn Light Italic                       [X] [X] [ ]
+      6  HugoSansMono NF XCn Lt It                                [X] [X] [X]
+
+#+end_quote
+
+
++ Before proceding, do a test with just a single file, like ~nerd-font-patcher this.ttf~
+
+#+begin_src shell
+  nerd-font-patcher -c --careful --makegroups -1 -out nerdy this.ttf
+
+  # or in loop
+  for i in *.ttf; do nerd-font-patcher -c --careful --makegroups -1 -out nerds $i; done
+#+end_src
+
+
+* Emacs
+
+Use it in the GOAT-Editor!
+
+#+begin_src emacs-lisp
+  (set-face-attribute 'default nil :family "Rec Code Guest" :weight 'medium :height 150)
+
+  ;; Set the fixed pitch face (monospace)
+  (set-face-attribute 'fixed-pitch nil :family "Rec Code Guest" :height 150)
+
+  ;; Set the variable pitch face (document text)
+  (set-face-attribute 'variable-pitch nil :family "Rec Code Casual" :height 170 :weight 'medium)
+
+
+  # or you can also do
+
+  (custom-set-faces
+   '(default nil :family "Rec Code Guest" :weight 'medium :height 150)
+
+   ;; Set the fixed pitch face (monospace)
+   '(fixed-pitch nil :family "Rec Code Guest" :height 150)
+
+   ;; Set the variable pitch face (document text)
+   '(variable-pitch nil :family "Rec Code Casual" :height 170 :weight 'medium))
+#+end_src
