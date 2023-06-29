@@ -15,6 +15,10 @@
         
         nativeBuildInputs = [ pkgs.bashInteractive ];
         buildInputs = with pkgs; [ 
+
+          # I had error with finding libstdc++.so.6, so gcu_multi showed me the $LD_LIBRARY_PATH
+          gcc_multi
+
           (python311.withPackages(ps: with ps; [ 
             fonttools
             ttfautohint
