@@ -19,6 +19,9 @@
           # I had error with finding libstdc++.so.6, so gcu_multi showed me the $LD_LIBRARY_PATH
           gcc_multi
 
+          # nerd icons patching
+          nerd-font-patcher
+
           (python311.withPackages(ps: with ps; [ 
             fonttools
             ttfautohint
