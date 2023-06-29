@@ -20,7 +20,7 @@
 # Example: "Custom" will yield the family "Rec Code Custom". 
 # Keep under 13 characters in length to avoid potential OS bugs.
 
-Family Name Suffix: Custom 
+Family Name Suffix: Guest
 
 # -----------------------------------------------------------------------------
 # Font Styles
@@ -102,9 +102,11 @@ Features:
 - ss01 # Single-story a
 - ss02 # Single-story g
 - ss03 # Simplified f
+- ss04 # Simplified f
 - ss05 # Simplified l
 - ss06 # Simplified r
-- ss08 # Serifless L and Z
+- ss07 # Serifless L and Z
+- ss08 # Simplified f
 - ss09 # Simplified 6 and 9
 - ss10 # Dotted 0
 - ss11 # Simplified 1
