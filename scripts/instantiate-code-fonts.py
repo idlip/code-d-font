@@ -76,8 +76,8 @@ def setFontNameID(font, ID, newName):
 oldName = "Recursive"
 
 def splitFont(
-        outputDirectory=f"RecCode{fontOptions['Family Name Suffix']}".replace(" ",""),
-        newName="Rec Code",
+        outputDirectory=f"Dcode{fontOptions['Family Name Suffix']}".replace(" ",""),
+        newName="D Code",
 ):
 
     # access font as TTFont object
