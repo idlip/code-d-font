@@ -96,9 +96,46 @@ Use it in the GOAT-Editor!
 Fonts that are patched is present in [[file:fonts/]] directory.
 From the name you should have realized, these all belong to OnePiece World.
 
-| Name            | Style                        |
-| Code D OnePiece | Duotone (Mono+Casual for BI) |
-| Code D Lip      | Casual Sans                  |
-| Code D Law      | Linear Sans                  |
-| Code D Haki     | Sans-Duo                     |
-| Code D Zoro     | Semi-Casual                  |
+| Name            | Style              |
+| Code D OnePiece | Mono Linear+Casual |
+| Code D Lip      | Mono Casual        |
+| Code D Law      | Mono Linear        |
+| Code D Haki     | Sans Linear+Casual     |
+| Code D Ace      | Sans-Casual        |
+| Code D Zoro     | Mono Semi-Casual   |
+
+* Nix Package
+I have made up an custom package for this fork.
+You can use it by adding the line ~(pkgs.callPackage ./pkgs/recursive-font.nix {})~
+
+#+begin_src nix
+  { lib, fetchgit, stdenvNoCC }:
+
+  stdenvNoCC.mkDerivation rec {
+    pname = "code-d-font";
+    version = "1.085";
+
+    src = fetchgit {
+      url = "https://github.com/idlip/code-d-font";
+      sparseCheckout = [
+	"fonts"
+      ];
+      # change the sha256 to latest one. Just uncomment the line, nix will give the latest sha value
+      sha256 = "sha256-PkJOX+zYQYs0J+T92y4oTXsYXKJ960/TSELDjykw52Q=";
+    };
+
+    installPhase = ''
+      install -D -t $out/share/fonts/truetype/ $(find $src -type f -name '*.ttf')
+    '';
+
+
+    meta = with lib; {
+      homepage = "https://github.com/arrowtype/recursive-code-config/";
+      description = "A variable font family for code & UI";
+      license = licenses.ofl;
+      maintainers = [ maintainers.idlip ];
+      platforms = platforms.all;
+    };
+  }
+
+#+end_src
