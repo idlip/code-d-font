@@ -5,7 +5,7 @@
 This is obviously a fork of ~Recursive Fonts~ , I have nerd-font patched it for icons, and have named it in a OnePiece fashion.
 If you had noticed, all my personal repo's branched are named after OnePiece stuffs.
 
-You can check the origianl repo and modify to your needs.
+You can check the [[https://github.com/arrowtype/recursive-code-config][origianl repo]] and modify to your needs.
 
 * Usage
 
@@ -90,3 +90,15 @@ Use it in the GOAT-Editor!
    ;; Set the variable pitch face (document text)
    '(variable-pitch nil :family "Rec Code Casual" :height 170 :weight 'medium))
 #+end_src
+
+* Font Info
+
+Fonts that are patched is present in [[file:fonts/]] directory.
+From the name you should have realized, these all belong to OnePiece World.
+
+| Name            | Style                        |
+| Code D OnePiece | Duotone (Mono+Casual for BI) |
+| Code D Lip      | Casual Sans                  |
+| Code D Law      | Linear Sans                  |
+| Code D Haki     | Sans-Duo                     |
+| Code D Zoro     | Semi-Casual                  |
