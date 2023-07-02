@@ -1,5 +1,10 @@
 #+title: OnePiece Fan's Recursive Font
 
+*Note:* Don't confuse with number of commits ahead of parent repo, there is no changes or development in font.
+
+All commits are for readme (org file), font files, some nixos tweaking and renaming in script.
+
+But surely if there are any commits in parent repo, I will merge/add it here.
 
 * Fork
 This is obviously a fork of ~Recursive Fonts~ , I have nerd-font patched it for icons, and have named it in a OnePiece fashion.
